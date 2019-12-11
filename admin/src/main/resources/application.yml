@@ -1,0 +1,18 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: admin
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+
+info:
+  app:
+    name: admin
+    version: 1.0

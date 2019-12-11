@@ -1,0 +1,25 @@
+info:
+  app:
+    name: validate
+    version: 1.0
+
+server:
+  port: 8088
+
+spring:
+  application:
+    name: validate
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

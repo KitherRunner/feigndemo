@@ -1,0 +1,32 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: zuul
+
+zuul:
+  routes:
+    consumer:
+      path: /consumer/**
+      serviceId: consumer
+
+    provider:
+      path: /provider/**
+      serviceId: provider
+
+    order:
+      path: /order/**
+      serviceId: order
+
+    validate:
+      path: /validate/**
+      serviceId: validate
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka/

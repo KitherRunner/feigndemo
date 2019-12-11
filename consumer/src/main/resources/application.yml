@@ -14,3 +14,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:8081/eureka/
 
+info:
+  app:
+    name: consumer
+    version: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
