@@ -17,9 +17,13 @@ public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
 
+    /**
+     * restTemplate 调用时需要指定访问的全路径
+     * @return
+     */
     @GetMapping(value = "hello", produces = "text/plain;charset=UTF-8")
     public String hello() {
-        return restTemplate.getForObject("http://127.0.0.1:8085/provider/hello", String.class);
+        return restTemplate.getForObject("http://127.0.0.1:9002/provider/hello", String.class);
     }
 
     @GetMapping(value = "helloFeign", produces = "text/plain;charset=UTF-8")

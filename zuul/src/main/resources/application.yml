@@ -22,6 +22,7 @@ zuul:
     validate:
       path: /validate/**
       serviceId: validate
+  strip-prefix: false
 
 eureka:
   instance:
@@ -30,3 +31,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8081/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

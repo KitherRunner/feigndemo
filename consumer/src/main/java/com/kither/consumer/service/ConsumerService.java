@@ -1,9 +1,10 @@
 package com.kither.consumer.service;
 
+import com.kither.consumer.fallback.ConsumerFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient("provider")
+@FeignClient(value = "provider", fallback = ConsumerFallBack.class)
 public interface ConsumerService {
 
     /**
