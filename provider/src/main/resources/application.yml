@@ -24,3 +24,11 @@ management:
     web:
       exposure:
         include: "*"
+
+# 加解密使用的秘钥
+jasypt:
+  encryptor:
+    password: kither
+
+my:
+  password: ENC(f3zHTMgu+5hDxOU+pLYTnw==) # 加密后的密码，原密码为 w23456
