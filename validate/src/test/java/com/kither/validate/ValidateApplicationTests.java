@@ -1,7 +1,6 @@
 package com.kither.validate;
 
 import com.kither.jwt.JwtUtil;
-import com.sun.javafx.fxml.builder.URLBuilder;
 import io.jsonwebtoken.Claims;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
