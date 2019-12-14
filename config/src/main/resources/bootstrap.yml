@@ -1,0 +1,19 @@
+# 配置配置中心的名称和对应的git信息
+spring:
+  cloud:
+    config:
+      enabled: true
+      name: KitherRunner
+      password: ENC(ttWUBmTuaIdGH7CuDeBsVdOHH4yE0lYC)
+      server:
+        git:
+          uri: https://github.com/KitherRunner/feigndemo.git
+          skip-ssl-validation: true # 跳过ssl证书验证
+          timeout: 20 #以秒为单位
+          force-pull: true #强制拉取git仓库配置文件
+          default-label: master
+
+#加密使用的盐值/秘钥
+jasypt:
+  encryptor:
+    password: kither

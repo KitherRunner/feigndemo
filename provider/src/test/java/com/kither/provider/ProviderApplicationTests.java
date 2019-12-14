@@ -17,9 +17,9 @@ class ProviderApplicationTests {
         StandardPBEStringEncryptor encryptor = new StandardPBEStringEncryptor();
         EnvironmentPBEConfig pbeConfig = new EnvironmentPBEConfig();
         pbeConfig.setAlgorithm("PBEWithMD5AndDES"); // 几码算法，固定值
-        pbeConfig.setPassword("kither");
+        pbeConfig.setPassword("kither"); // 盐值
         encryptor.setConfig(pbeConfig);
-        String password = encryptor.encrypt("w23456");// 需要加密的密码
+        String password = encryptor.encrypt("wcj1995720");// 需要加密的密码
         System.out.println(password);
     }
 }
