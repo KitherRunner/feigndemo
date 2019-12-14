@@ -1,0 +1,29 @@
+server:
+  port: 9009
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://127.0.0.1:8081/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: config
+    version: 1.0
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: config
