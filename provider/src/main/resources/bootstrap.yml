@@ -1,5 +1,16 @@
+### 以下配置必须写在bootstrap.yml(oproperties)中
+### 否则在注入对应配置中心文件中的属性时，项目启动报错[找不到对应的属性]，而且项目的等到配置中心项目启动完成后再启动
+### 可以通过调接口来测试配置中心服务是否启动完成：
+### 例：http://localhost:9009/application/dev [读取：application-dev.yml]       http://localhost:9009/application/prod [读取：application-prod.yml]
 spring:
   cloud:
     config:
       fail-fast: true
+      # 配置了service-id可以不需要配置url
       uri: http://127.0.0.1:9009/
+      profile: dev
+      discovery:
+        service-id: config
+
+
+

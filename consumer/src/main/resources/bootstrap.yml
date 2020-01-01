@@ -3,3 +3,4 @@ spring:
     config:
       fail-fast: true
       uri: http://127.0.0.1:9009/
+      profile: dev

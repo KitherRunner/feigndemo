@@ -7,7 +7,7 @@ spring:
       password: ENC(ttWUBmTuaIdGH7CuDeBsVdOHH4yE0lYC)
       server:
         git:
-          uri: https://github.com/KitherRunner/feigndemo.git
+          uri: https://github.com/KitherRunner/feigndemo
           skip-ssl-validation: true # 跳过ssl证书验证
           timeout: 20 #以秒为单位
           force-pull: true #强制拉取git仓库配置文件
