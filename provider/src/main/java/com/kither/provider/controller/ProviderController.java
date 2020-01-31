@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProviderController {
 
     /**
-     * 不加setter/getter方无法注入属性
+     * 使用@ConfigurationProperties注入属性时不加setter方无法注入属性
      */
     private String password;
 
@@ -25,10 +25,6 @@ public class ProviderController {
 //    @CrossOrigin
     public String hello() {
         return "provider hello: " + password + "githubName：" + githubName;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {
