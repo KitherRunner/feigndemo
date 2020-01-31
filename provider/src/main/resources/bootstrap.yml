@@ -1,5 +1,5 @@
-### 以下配置必须写在bootstrap.yml(oproperties)中
-### 否则在注入对应配置中心文件中的属性时，项目启动报错[找不到对应的属性]，而且项目的等到配置中心项目启动完成后再启动
+### 以下配置必须写在bootstrap.yml(properties)中
+### 否则在注入对应配置中心文件中的属性时，项目启动报错[找不到对应的属性]，而且项目得等到配置中心项目启动完成后再启动
 ### 可以通过调接口来测试配置中心服务是否启动完成：
 ### 例：http://localhost:9009/application/dev [读取：application-dev.yml]       http://localhost:9009/application/prod [读取：application-prod.yml]
 spring:
@@ -8,9 +8,23 @@ spring:
       fail-fast: true
       # 配置了service-id可以不需要配置url
       uri: http://127.0.0.1:9009/
-      profile: dev
       discovery:
         service-id: config
+      ### 可以配置多个，逗号隔开
+      label: master
+      profile: test
+      ## 配置名称(读取的配置文件对应的名称)，
+      ## 不设置默认取 ${spring.application.name}，但是没有与名称对应的文件时，可以读取到 application-{profile}文件
+      # 观察日志[设置profile: dev]，此时不存在 feigndemo-dev.yml/feigndemo-dev.properties, 但是从日志中可以看出读取到了 application-dev.yml 文件
+      # [  restartedMain] c.c.c.ConfigServicePropertySourceLocator: Fetching config from server at: http://127.0.0.1:9009/
+      # [  restartedMain] c.c.c.ConfigServicePropertySourceLocator: Located environment: name=feigndemo, profiles=[dev], label=master, version=a3b7e7ac55a05f3bd60370b7fb113428ed3e029a, state=null
+      # [  restartedMain] b.c.PropertySourceBootstrapConfiguration: Located property source: OriginTrackedCompositePropertySource {name='configService', propertySources=[MapPropertySource {name='configClient'}, OriginTrackedMapPropertySource {name='https://github.com/KitherRunner/feigndemo/application-dev.yml'}]}
+
+      # 观察控制台的日志[设置profile: test]，读取到 feigndemo-test.yml 文件
+      # [  restartedMain] c.c.c.ConfigServicePropertySourceLocator: Fetching config from server at: http://127.0.0.1:9009/
+      # [  restartedMain] c.c.c.ConfigServicePropertySourceLocator: Located environment: name=feigndemo, profiles=[test], label=master, version=a3b7e7ac55a05f3bd60370b7fb113428ed3e029a, state=null
+      # [  restartedMain] b.c.PropertySourceBootstrapConfiguration: Located property source: OriginTrackedCompositePropertySource {name='configService', propertySources=[MapPropertySource {name='configClient'}, OriginTrackedMapPropertySource {name='https://github.com/KitherRunner/feigndemo/feigndemo-test.yml'}]}
+      name: feigndemo
 
 
 
